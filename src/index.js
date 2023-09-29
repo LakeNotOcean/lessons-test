@@ -1,3 +1,7 @@
-console.log('debug is work');
+import { fnGetConfigSerivce } from '../src/services/config.service.js';
 
-console.log('debug add');
+async function fnBootstap() {
+	const oConfigService = fnGetConfigSerivce();
+}
+
+fnBootstap();

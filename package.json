@@ -19,6 +19,7 @@
     "test task",
     "Мой Класс"
   ],
+  "type": "module",
   "author": "Nevsky Vladislav",
   "license": "MIT",
   "dependencies": {

@@ -7,7 +7,7 @@ module.exports = {
 	env: {
 		node: true,
 		jest: true,
-		es2023: true,
+		esnext: true,
 	},
 	ignorePatterns: ['.eslintrc.js'],
 	rules: {

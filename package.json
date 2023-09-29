@@ -1,0 +1,23 @@
+{
+  "name": "lessons-test",
+  "version": "1.0.0",
+  "description": "Solution of the test task for the company \"Мой класс\" ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.js\" --fix"
+  },
+  "keywords": [
+    "test task",
+    "Мой Класс"
+  ],
+  "author": "Nevsky Vladislav",
+  "license": "MIT",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.50.0"
+  }
+}

@@ -1,6 +1,7 @@
 import { config } from 'dotenv';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
+import { fnConfigPropertyNotFound } from './config.exception.js';
 
 export function fnGetConfigSerivce() {
 	const env = process.env.NODE_ENV;
@@ -15,18 +16,25 @@ export function fnGetConfigSerivce() {
 
 	const oConfigData = {};
 	config({
-		path: join(__dirname, '..', 'configs', CONFIG_FILENAME),
+		path: join(__dirname, '..', '..', '..', 'configs', CONFIG_FILENAME),
+		// @ts-ignore
 		processEnv: oConfigData,
 	});
 
+	/**
+	 * @param {string} sPropertyPath
+	 */
 	function fnGetOrThrow(sPropertyPath) {
 		const sProperty = oConfigData[sPropertyPath];
 		if (!sProperty) {
-			throw new Error();
+			throw fnConfigPropertyNotFound(sPropertyPath);
 		}
 		return sProperty;
 	}
 
+	/**
+	 * @param {string } sPropertyPath
+	 */
 	function fnGet(sPropertyPath) {
 		return oConfigData[sPropertyPath];
 	}

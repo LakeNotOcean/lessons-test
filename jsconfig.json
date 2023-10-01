@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"checkJs": true,
+		"module": "NodeNext",
+		"baseUrl": "./",
+		"paths": {
+			"#src/*": ["./src/*"]
+		},
+		"moduleResolution": "nodenext"
+	},
+	"exclude": ["node_modules", "**/node_modules/*"]
+}

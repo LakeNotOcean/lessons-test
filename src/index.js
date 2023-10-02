@@ -2,9 +2,14 @@ import bodyParser from 'body-parser';
 import express from 'express';
 import { fnExceptionHandler } from './lib/exceptions/exception.filter.js';
 import { fnGetConfigSerivce } from './services/common/config/config.service.js';
+import { fnGetDbService } from './services/common/db/db.service.js';
 
-function fnBootstap() {
+/**
+ *
+ */
+async function fnBootstap() {
 	const oConfigService = fnGetConfigSerivce();
+	const oDbService = await fnGetDbService(oConfigService);
 	const sPort = oConfigService.fnGetOrThrow('appPort');
 	const sAddress = oConfigService.fnGetOrThrow('appAddress');
 	const oApp = express();
@@ -15,7 +20,7 @@ function fnBootstap() {
 		}),
 	);
 	oApp.use(fnExceptionHandler);
-	oApp.listen(sPort, sAddress, () => {
+	oApp.listen(parseInt(sPort), sAddress, () => {
 		console.log('App listening on port ' + sPort);
 	});
 }

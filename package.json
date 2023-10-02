@@ -25,10 +25,13 @@
     "body-parser": "^1.20.2",
     "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
-    "express": "^5.0.0-alpha.2"
+    "express": "^5.0.0-alpha.2",
+    "knex": "^2.5.1",
+    "pg": "^8.11.3"
   },
   "devDependencies": {
     "chokidar": "^3.5.3",
-    "eslint": "^8.50.0"
+    "eslint": "^8.50.0",
+    "eslint-plugin-jsdoc": "^46.8.2"
   }
 }

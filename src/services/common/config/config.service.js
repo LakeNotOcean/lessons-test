@@ -1,8 +1,12 @@
+import { fnGetDirName } from '#src/utils/path.util.js';
 import { config } from 'dotenv';
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
+import { join } from 'path';
 import { fnConfigPropertyNotFound } from './config.exception.js';
 
+/**
+ *
+ * @returns {{fnGet : function(string): string,  fnGetOrThrow: function(string): string}}
+ */
 export function fnGetConfigSerivce() {
 	const env = process.env.NODE_ENV;
 
@@ -10,19 +14,24 @@ export function fnGetConfigSerivce() {
 		throw Error('NODE_ENV is undefined');
 	}
 	const CONFIG_FILENAME = 'config.' + env + '.env';
-
-	const __filename = fileURLToPath(import.meta.url);
-	const __dirname = dirname(__filename);
-
 	const oConfigData = {};
+
 	config({
-		path: join(__dirname, '..', '..', '..', 'configs', CONFIG_FILENAME),
+		path: join(
+			fnGetDirName(import.meta.url),
+			'..',
+			'..',
+			'..',
+			'configs',
+			CONFIG_FILENAME,
+		),
 		// @ts-ignore
 		processEnv: oConfigData,
 	});
 
 	/**
 	 * @param {string} sPropertyPath
+	 * @returns {string}
 	 */
 	function fnGetOrThrow(sPropertyPath) {
 		const sProperty = oConfigData[sPropertyPath];
@@ -34,6 +43,7 @@ export function fnGetConfigSerivce() {
 
 	/**
 	 * @param {string } sPropertyPath
+	 * @returns {string}
 	 */
 	function fnGet(sPropertyPath) {
 		return oConfigData[sPropertyPath];

@@ -27,7 +27,10 @@
     "dotenv": "^16.3.1",
     "express": "^5.0.0-alpha.2",
     "knex": "^2.5.1",
-    "pg": "^8.11.3"
+    "pg": "^8.11.3",
+    "pino": "^8.15.3",
+    "pino-http": "^8.5.0",
+    "pino-pretty": "^10.2.0"
   },
   "devDependencies": {
     "chokidar": "^3.5.3",

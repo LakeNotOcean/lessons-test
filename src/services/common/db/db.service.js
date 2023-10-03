@@ -4,9 +4,10 @@ import knex from 'knex';
 import { join } from 'path';
 /**
  * @param {object} oConfigService
+ * @param {object} oLogger
  * @returns {Promise<knex>}
  */
-export async function fnGetDbService(oConfigService) {
+export async function fnGetDbService(oConfigService, oLogger) {
 	const oKnexConnection = knex({
 		client: 'pg',
 		connection: {
@@ -39,6 +40,9 @@ export async function fnGetDbService(oConfigService) {
 				'migrations_scripts',
 			),
 		},
+	});
+	oKnexConnection.on('query', ({ sql, bindings }) => {
+		oLogger.info({ sql, bindings, context: 'SQL' });
 	});
 	await oKnexConnection.raw('select 1+1 as result');
 	if (isDev) {

@@ -4,12 +4,11 @@ import { cExceptionType } from './exception.type.js';
 
 export class cException {
 	/**
-	 * @constructor
+	 * @class
 	 * @param {cExceptionCode} iCode
 	 * @param {object} oPayload
 	 * @param {object} oInner
 	 * @param {cExceptionType} oType
-	 * @returns
 	 */
 	constructor(iCode, oPayload, oInner, oType) {
 		Object.assign(this, {
@@ -26,6 +25,7 @@ export class cException {
  * @param {cExceptionCode} iCode
  * @param {object} oPayload
  * @param {object} oInner
+ * @returns {cException}
  */
 export function fnNotFoundException(iCode, oPayload, oInner) {
 	const oType = cExceptionType.NotFoundException;
@@ -37,6 +37,7 @@ export function fnNotFoundException(iCode, oPayload, oInner) {
  * @param {cExceptionCode} iCode
  * @param {object} oPayload
  * @param {object} oInner
+ * @returns {cException}
  */
 export function fnClientException(iCode, oPayload, oInner) {
 	const oType = cExceptionType.ClientException;
@@ -48,6 +49,7 @@ export function fnClientException(iCode, oPayload, oInner) {
  * @param {cExceptionCode} iCode
  * @param {object} oPayload
  * @param {object} oInner
+ * @returns {cException}
  */
 export function fnServerException(iCode, oPayload, oInner) {
 	const oType = cExceptionType.ServerException;
@@ -59,6 +61,7 @@ export function fnServerException(iCode, oPayload, oInner) {
  * @param {cExceptionCode} iCode
  * @param {object} oPayload
  * @param {object} oInner
+ * @returns {cException}
  */
 export function fnBusinessException(iCode, oPayload, oInner) {
 	const oType = cExceptionType.BusinessException;

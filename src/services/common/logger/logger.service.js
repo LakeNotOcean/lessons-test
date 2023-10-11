@@ -1,8 +1,5 @@
 import { randomUUID } from 'crypto';
-import pino from 'pino';
 import PinoHttp from 'pino-http';
-
-const oPino = pino;
 
 /**
  * @returns {object}

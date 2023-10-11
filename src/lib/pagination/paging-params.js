@@ -1,6 +1,6 @@
 export class cPagingParams {
 	#iMaxPageSize = 50;
-	#iPageSize = 50;
+	#iPageSize = 5;
 
 	get iPageSize() {
 		return this.#iPageSize;

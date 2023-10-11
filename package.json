@@ -1,7 +1,7 @@
 {
   "name": "lessons-test",
-  "version": "1.0.0",
-  "description": "Solution of the test task for the company \"Мой класс\" ",
+  "version": "1.0.1",
+  "description": "Application for test pure JS",
   "main": "index.js",
   "scripts": {
     "prebuild": "rimraf dist",
@@ -11,8 +11,8 @@
     "lint": "eslint \"{src,apps,libs,test}/**/*.js\" --fix"
   },
   "keywords": [
-    "test task",
-    "Мой Класс"
+    "test",
+    "Javascript"
   ],
   "type": "module",
   "module": "esnext",
@@ -26,6 +26,7 @@
     "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
     "express": "^5.0.0-alpha.2",
+    "express-validator": "^7.0.1",
     "knex": "^2.5.1",
     "pg": "^8.11.3",
     "pino": "^8.15.3",
